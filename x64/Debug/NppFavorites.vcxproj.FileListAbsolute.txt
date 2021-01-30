@@ -1,0 +1,2 @@
+C:\Users\Joseph\Documents\GitHub\nppfavorites\x64\Debug\NppFavorites.dll
+C:\Users\Joseph\Documents\GitHub\nppfavorites\x64\Debug\NppFavorites.pdb

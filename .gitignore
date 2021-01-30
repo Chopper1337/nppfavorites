@@ -11,3 +11,7 @@ ipch/
 Release/
 Unicode Debug/
 Unicode Realeas/
+*.db
+*.db-shm
+*.db-wal
+*.opendb

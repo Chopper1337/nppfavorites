@@ -79,6 +79,13 @@ void commandMenuInit()
 	setCommand(4, FileName, OpenFile4, shKey(0x35), false);
 	::GetPrivateProfileString(sectionName, TEXT("favFile5"), TEXT(""), FileName, MAX_PATH, iniFilePath);
 	setCommand(5, FileName, OpenFile5, shKey(0x36), false);
+	::GetPrivateProfileString(sectionName, TEXT("favFile6"), TEXT(""), FileName, MAX_PATH, iniFilePath);
+	::GetPrivateProfileString(sectionName, TEXT("favFile7"), TEXT(""), FileName, MAX_PATH, iniFilePath);
+	::GetPrivateProfileString(sectionName, TEXT("favFile8"), TEXT(""), FileName, MAX_PATH, iniFilePath);
+	::GetPrivateProfileString(sectionName, TEXT("favFile9"), TEXT(""), FileName, MAX_PATH, iniFilePath);
+	::GetPrivateProfileString(sectionName, TEXT("favFile10"), TEXT(""), FileName, MAX_PATH, iniFilePath);
+	::GetPrivateProfileString(sectionName, TEXT("favFile11"), TEXT(""), FileName, MAX_PATH, iniFilePath);
+	::GetPrivateProfileString(sectionName, TEXT("favFile12"), TEXT(""), FileName, MAX_PATH, iniFilePath);
 																			   
 	setCommand(nbFunc-2, TEXT("---"), NULL, NULL, false);
 	setCommand(nbFunc-1, TEXT("Manage Favorites"), ManageFavorites, shKey(0x42), false);	
@@ -103,6 +110,13 @@ void configFileInit()
 		::WritePrivateProfileString(sectionName, TEXT("favFile3"), TEXT(""), iniFilePath);
 		::WritePrivateProfileString(sectionName, TEXT("favFile4"), TEXT(""), iniFilePath);
 		::WritePrivateProfileString(sectionName, TEXT("favFile5"), TEXT(""), iniFilePath);	
+		::WritePrivateProfileString(sectionName, TEXT("favFile6"), TEXT(""), iniFilePath);	
+		::WritePrivateProfileString(sectionName, TEXT("favFile7"), TEXT(""), iniFilePath);	
+		::WritePrivateProfileString(sectionName, TEXT("favFile8"), TEXT(""), iniFilePath);	
+		::WritePrivateProfileString(sectionName, TEXT("favFile9"), TEXT(""), iniFilePath);	
+		::WritePrivateProfileString(sectionName, TEXT("favFile10"), TEXT(""), iniFilePath);	
+		::WritePrivateProfileString(sectionName, TEXT("favFile11"), TEXT(""), iniFilePath);	
+		::WritePrivateProfileString(sectionName, TEXT("favFile12"), TEXT(""), iniFilePath);	
 	}
 }
 
@@ -124,13 +138,13 @@ bool setCommand(size_t index, TCHAR *cmdName, PFUNCPLUGINCMD pFunc, ShortcutKey 
     if (index >= nbFunc) return false;
     if (!pFunc) return false;
 
-    const int MAX_LEN_MENU = 50;
+    const int MAX_LEN_MENU = 64;
     if (lstrlen(cmdName) > MAX_LEN_MENU) {        
         const int SNIP = (MAX_LEN_MENU / 2) - 2;
 		const int GAP = lstrlen(cmdName) - SNIP;
 		TCHAR smallName[MAX_LEN_MENU];
 		for (int j = 0; j < MAX_LEN_MENU; j++ ) 
-			smallName[j] = 46;
+			smallName[j] = 60;
 		int i = 0;  
 		for (i = 0; i < SNIP; i++ ) 
 			smallName[i] = cmdName[i];
@@ -155,6 +169,12 @@ void OpenFile2() { OpenFavFile(TEXT("favFile2")); }
 void OpenFile3() { OpenFavFile(TEXT("favFile3")); }
 void OpenFile4() { OpenFavFile(TEXT("favFile4")); }
 void OpenFile5() { OpenFavFile(TEXT("favFile5")); }
+void OpenFile6() { OpenFavFile(TEXT("favFile6")); }
+void OpenFile7() { OpenFavFile(TEXT("favFile7")); }
+void OpenFile8() { OpenFavFile(TEXT("favFile8")); }
+void OpenFile9() { OpenFavFile(TEXT("favFile9")); }
+void OpenFile10() { OpenFavFile(TEXT("favFile10")); }
+void OpenFile11() { OpenFavFile(TEXT("favFile11")); }
 
 void OpenFavFile(TCHAR* keyName)
 {
